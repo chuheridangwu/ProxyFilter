@@ -1,0 +1,12 @@
+{
+  "functions": {
+    "api/index.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "env": {
+    "DEFAULT_URL": "https://example.com/clash.yaml",
+    "DEFAULT_NAME_FILTER": "香港",
+    "FORCE_NAME_FILTER": "^(?!.*试用)"
+  }
+}

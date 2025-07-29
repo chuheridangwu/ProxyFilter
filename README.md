@@ -66,25 +66,60 @@ https://your-worker-url.workers.dev/?url=订阅地址&name=过滤条件&type=类
 
 ### 部署方法
 
-1. **安装Wrangler CLI**
+#### Vercel 部署（推荐）
+
+1. **安装 Vercel CLI**
+   ```bash
+   npm install -g vercel
+   ```
+
+2. **本地开发**
+   ```bash
+   npm install
+   npm run dev
+   ```
+
+3. **部署到 Vercel**
+   ```bash
+   npm run deploy
+   ```
+
+4. **环境变量配置**
+   在 Vercel 控制台或 `vercel.json` 中配置：
+   ```json
+   {
+     "env": {
+       "DEFAULT_URL": "https://example.com/clash.yaml",
+       "DEFAULT_NAME_FILTER": "香港",
+       "FORCE_NAME_FILTER": "^(?!.*试用)"
+     }
+   }
+   ```
+
+#### Cloudflare Workers 部署
+
+1. **安装 Wrangler CLI**
    ```bash
    npm install -g wrangler
    ```
 
-2. **配置wrangler.toml**
-   ```toml
-   name = "clash-filter-api"
-   main = "src/index.js"
-   compatibility_date = "2023-05-18"
-
-   [vars]
-   DEFAULT_URL = "https://example.com/clash.yaml"
-   ```
-
-3. **部署到Cloudflare Workers**
+2. **部署到 Cloudflare Workers**
    ```bash
    npx wrangler deploy src/index.js
    ```
+
+### 本地运行
+
+```bash
+# 安装依赖
+npm install
+
+# Vercel 本地开发
+npm run dev
+
+# 或使用 Wrangler 本地开发
+npx wrangler dev src/index.js
+```
 
 ### 环境变量
 
